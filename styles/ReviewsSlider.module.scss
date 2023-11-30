@@ -1,0 +1,34 @@
+.reviewsSlider {
+    margin: 5rem 0;
+
+    .box {
+        text-align: center;
+
+        p {
+            line-height: 2;
+        }
+    }
+
+    .slider {
+        padding-bottom: 1rem;
+    }
+
+    .caption {
+        text-align: center;
+        max-width: 780px;
+        margin: auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
+
+        p {
+            color: #999;
+            margin: 0;
+            font-style: normal;
+            line-height: 1;
+
+            strong {
+                font-weight: 700;
+            }
+        }
+    }
+}

@@ -1,0 +1,112 @@
+.useFulSection {
+    position: relative;
+    background-image: url('../public/userful_for_bg.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 6rem 0 5rem;
+    margin-top: 5rem;
+
+    &:before {
+        content: "";
+        background: rgba(13,71,128,.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    & > div {
+        z-index: 4;
+        position: relative;
+    }
+
+    .gridItem {
+        margin-bottom: 4rem;
+    }
+
+    .cards {
+        margin-top: 0;
+    }
+
+    .card {
+        background-color: #fff;
+        box-shadow: 0 0 30px rgba(0,0,0,.9);
+        border-radius: 10px;
+        padding: 20px 15px 30px;
+        height: 100%;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: flex-start;
+
+        .cardPicture {
+            width: 160px;
+            height: 160px;
+            margin: auto;
+            display: flex;
+            transition: ease .5s;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                z-index: 22;
+            }
+
+            &:before {
+                content: "";
+                width: 160px;
+                height: 160px;
+                background-image: url('../public/useful-pic-bg.png');
+                background-repeat: no-repeat;
+                transition: ease 1s;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-size: cover;
+            }
+        }
+
+        .cardTitle {
+            font-size: 24px;
+            line-height: 29px;
+            color: #0d4780;
+            font-weight: 700;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            & > li {
+                font-size: 16px;
+                line-height: 18px;
+                color: #0d4780;
+                margin-bottom: 15px;
+                position: relative;
+                padding: 0;
+                padding-left: 20px;
+
+                &:before {
+                    content: "";
+                    width: 8px;
+                    height: 8px;
+                    background: #49c6ff;
+                    border-radius: 1px;
+                    transform: matrix(.71,.71,.71,-.71,0,0);
+                    position: absolute;
+                    left: 0;
+                    top: 4px;
+                }
+            }
+        }
+    }
+}

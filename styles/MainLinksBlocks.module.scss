@@ -1,0 +1,40 @@
+.boxes {
+    margin-top: -10rem;
+    position: relative;
+    z-index: 22;
+    padding-bottom: 5rem;
+
+    .box {
+        background-color: #fff;
+        padding: 2rem;
+        box-shadow: 0px 8px 10px rgba(13,71,128,.5);
+        border-radius: 8px;
+        transition: .3s;
+        height: 100%;
+        position: relative;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 25px rgba(13,71,128,.5);
+        }
+
+        .link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 22;
+        }
+
+        .boxTitle {
+            color: #49c6ff;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .text {
+            font-size: 1.35rem;
+        }
+    }
+}

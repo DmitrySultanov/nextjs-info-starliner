@@ -1,0 +1,28 @@
+.Modal {
+
+    .title {
+        text-align: center;
+    }
+}
+
+
+.TryStarlinerFree {
+    background-color: #49c6ff;
+    padding: 6rem 0;
+
+    .input {
+        > label {
+            // line-height: .9rem;
+            font-size: .9rem;
+        }
+        > div {
+            background-color: #fff;
+            height: 2.5rem;
+
+            > input {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+}

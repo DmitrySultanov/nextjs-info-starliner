@@ -1,0 +1,14 @@
+.categoriesList {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    .link {
+        font-weight: 700;
+        margin-right: 2rem;
+        cursor: pointer;
+
+        &.active {
+            color: red;
+        }
+    }
+}

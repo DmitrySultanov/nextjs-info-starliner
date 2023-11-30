@@ -1,0 +1,69 @@
+.slider {
+    height: 640px;
+
+    .image {
+        width: auto;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .slideWrapper {
+        height: 100%;
+        background-position: right center;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        position: relative;
+        transition: 2s;
+    }
+
+    .slideContent {
+        position: relative;
+        z-index: 22;
+        background-image: url('../public/intro_slider_rectangle.webp');
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        height: 100%;
+        padding-top: 3rem;
+        background-position-x: -10vh;
+        position: relative;
+        z-index: 22;
+        transition: 2s;
+
+        &.translated {
+            transform: translateX(-10rem);
+        }
+
+        .title {
+            max-width: 70%;
+            color: #fff;
+            line-height: 1.2;
+            text-shadow: 0 1px 2px rgba(0,0,0,.5);
+            margin-top: 0;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        p {
+            margin-top: 1rem;
+
+            strong {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: #fff;
+                text-shadow: 0 1px 2px rgba(0,0,0,.5);
+            }
+        }
+
+        .button {
+            margin-top: 1.5rem;
+        }
+    }
+
+    @media (max-width: 1699px) {
+        .slideContent {
+            background-position-x: -20vh;
+        }
+    }
+}
