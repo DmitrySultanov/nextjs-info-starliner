@@ -110,3 +110,23 @@ a, .link {
         padding: 0;
     }
 }
+
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > li {
+        padding: 0;
+        width: auto;
+        margin-right: 0.25rem;
+    }
+
+    svg {
+        font-size: 16px;
+    }
+
+    a, span {
+        font-size: .9rem;
+        vertical-align: text-bottom;
+    }
+}

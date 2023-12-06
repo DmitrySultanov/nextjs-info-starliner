@@ -2,16 +2,22 @@
 import { useState } from 'react'
 import { experimental_useFormStatus as useFormStatus } from 'react-dom'
 import { Button} from '@mui/material';
-import { getPostsByCategoryId, getPostsCaterories } from '@/lib/api'
+import { getPostsByCategoryId, getPostsByCategoryName, getPostsCaterories } from '@/lib/api'
 
 
-const LoadMorePostsButton = ({posts, setPosts, categoryId}) => {
+const LoadMorePostsButton = ({posts, setPosts, categoryId, categoryName}) => {
     // const { pending } = useFormStatus()
     const [loading, setLoading] = useState(false);
 
     const handleClick = async () => {
         setLoading(true)
-        const morePosts = await getPostsByCategoryId(Number(categoryId), 12, posts.pageInfo.endCursor);
+        let morePosts = []
+
+        if(categoryId) {
+            morePosts = await getPostsByCategoryId(Number(categoryId), 12, posts.pageInfo.endCursor);
+        } else if(categoryName) {
+            morePosts = await getPostsByCategoryName(categoryName, 12, posts.pageInfo.endCursor);
+        }
 
         let updatedPosts = {
             edges: [],

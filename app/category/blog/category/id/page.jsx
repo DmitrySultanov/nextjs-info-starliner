@@ -5,14 +5,15 @@ import { revalidateTag } from 'next/cache'
 import MasonryPosts from "@/components/blog/MasonryPosts"
 import PostsCategories from "@/components/blog/PostsCategories"
 import LoadMorePostsButton from "@/components/blog/LoadMoreAllPostsButton"
+import NextBreadcrumbs from "@/components/NextBreadcrumbs"
 
 // let posts = []
 // let count = 1
 
-async function fetchData(id) {
-    const res = getPostsByCategoryId(id, 6, '')
-    return res
-}
+// async function fetchData(id) {
+//     const res = getPostsByCategoryId(id, 6, '')
+//     return res
+// }
 
 
 // async function onSubmit(data) {
@@ -30,25 +31,27 @@ export default async function Page({ params }) {
     // if(count === 1) {
     //     posts = await fetchData(categoryId)
     // }
-    const FirstPosts = await fetchData(categoryId)
+    const FirstPosts = await getPostsByCategoryId(categoryId, 6, '')
     const categories = await getPostsCaterories(18)
     // const haveMorePosts = Boolean(posts?.pageInfo?.hasNextPage)
 
     return (
-        <Box sx={{pb: 5}}>
-            <Container maxWidth="lg">
-                <PostsCategories categories={categories} />
-                <MasonryPosts FirstPosts={FirstPosts} type="categoryPosts" categoryId={categoryId} />
+        <>
+            <Box sx={{pb: 5}}>
+                <Container maxWidth="lg">
+                    <PostsCategories categories={categories} />
+                    <MasonryPosts FirstPosts={FirstPosts} type="categoryPosts" categoryId={categoryId} />
 
-                {/* {haveMorePosts
-                    ? <Box component="form" action={onSubmit}>
-                        <input type="hidden" name="categoryId" value={categoryId} />
-                        <input type="hidden" name="endCursor" value={posts?.pageInfo?.startCursor} />
-                        <LoadMorePostsButton />
-                        </Box>
-                    : <Typography>✅ Все посты загружены</Typography>
-                } */}
-            </Container>
-        </Box>
+                    {/* {haveMorePosts
+                        ? <Box component="form" action={onSubmit}>
+                            <input type="hidden" name="categoryId" value={categoryId} />
+                            <input type="hidden" name="endCursor" value={posts?.pageInfo?.startCursor} />
+                            <LoadMorePostsButton />
+                            </Box>
+                        : <Typography>✅ Все посты загружены</Typography>
+                    } */}
+                </Container>
+            </Box>
+        </>
     )
 }

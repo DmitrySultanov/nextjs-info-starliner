@@ -26,7 +26,7 @@ export default async function Page({ params }) {
         <Container maxWidth="lg">
           <Grid container justifyContent="center" className={styles.heroContent}>
             <Grid item xs={12} md={10} lg={9} xl={8}>
-              <Link className={styles.categoryLink} href={`/category/blog/category/${post?.categories?.nodes[0]?.categoryId}`}>{post?.categories?.nodes[0]?.name}</Link>
+              <Link className={styles.categoryLink} href={`/category/blog/category/${post?.categories?.nodes[0]?.slug}`}>{post?.categories?.nodes[0]?.name}</Link>
               <Typography className={styles.title} variant="h3" component="h1">{post.title}</Typography>
             </Grid>
           </Grid>

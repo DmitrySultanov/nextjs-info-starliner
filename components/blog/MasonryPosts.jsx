@@ -9,7 +9,7 @@ import LoadMoreAllPostsButton from '@/components/blog/LoadMoreAllPostsButton'
 import LoadMoreCategoryPostsButton from '@/components/blog/LoadMoreCategoryPostsButton'
 
 
-export default function MasonryPosts({ FirstPosts, type, categoryId }) {
+export default function MasonryPosts({ FirstPosts, type, categoryId, categoryName }) {
     const [loading, setLoading] = useState(true);
     const [posts, setPosts] = useState(FirstPosts)
     const haveMorePosts = Boolean(posts?.pageInfo?.hasNextPage)
@@ -31,7 +31,7 @@ export default function MasonryPosts({ FirstPosts, type, categoryId }) {
                         {haveMorePosts
                             ? type === 'allPosts'
                                 ? <LoadMoreAllPostsButton posts={posts} setPosts={setPosts} />
-                                : <LoadMoreCategoryPostsButton posts={posts} setPosts={setPosts} categoryId={categoryId} />
+                                : <LoadMoreCategoryPostsButton posts={posts} setPosts={setPosts} categoryId={categoryId} categoryName={categoryName} />
                             : <Typography>✅ Все посты загружены</Typography>
                         }
                     </>

@@ -12,7 +12,7 @@ const PostsCategories = ({ categories }) => {
     const pathname = usePathname()
     // const [postsByCategory, setPostsByCategory] = useState([])
 
-    // console.log(pathname)
+    // console.log(categories, pathname)
     
     // async function fetchData(termId) {
     //   try {
@@ -34,13 +34,14 @@ const PostsCategories = ({ categories }) => {
 
     return (
         <>
+
             <Box className={styles.categoriesList}>
                 <Link className={classNames(pathname == "/category/blog" ? styles.active : "", styles.link)} href="/category/blog">Все</Link>
                 {/* <Typography className={classNames(styles.link, styles.active)} component="span" onClick={(e) => handleFilterByCategory('all', '', e)}>Все</Typography> */}
                 {categories.map((category, idx) => (
                     // <Typography className={styles.link} onClick={(e) => handleFilterByCategory(category?.node?.slug, category?.node?.termTaxonomyId,
                     //     e)} component="span" key={idx}>{category?.node?.name}</Typography>
-                    <Link className={classNames(pathname == `/category/blog/category/${category?.node?.termTaxonomyId}` ? styles.active : "", styles.link)} href={`/category/blog/category/${category?.node?.termTaxonomyId}`} key={idx}>{category?.node?.name}</Link>
+                    <Link className={classNames(pathname == `/category/blog/category/${category?.node?.slug}` ? styles.active : "", styles.link)} href={`/category/blog/category/${category?.node?.slug}`} key={idx}>{category?.node?.name}</Link>
                 ))}
             </Box>
         </>

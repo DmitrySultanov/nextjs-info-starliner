@@ -4,6 +4,8 @@ import MasonryPosts from '@/components/blog/MasonryPosts'
 import PostsCategories from '@/components/blog/PostsCategories'
 import { revalidateTag } from 'next/cache'
 import { Suspense } from 'react'
+import NextBreadcrumbs from '@/components/NextBreadcrumbs'
+import HomeIcon from '@mui/icons-material/Home';
 // import LoadMorePostsButton from '@/components/blog/LoadMorePostsButton'
 
 // let posts = await getPosts(9, '')
@@ -23,25 +25,38 @@ export default async function Page() {
   // const haveMorePosts = Boolean(posts?.pageInfo?.hasNextPage)
 
   return (
-    <Box sx={{pb: 5}}>
-      <Container maxWidth="lg">
-        <PostsCategories categories={categories} />
-        <Suspense fallback={<p>Loading posts...</p>}>
-          <MasonryPosts FirstPosts={FirstPosts} type="allPosts" />
-        </Suspense>
+    <>
+      <NextBreadcrumbs 
+        items={[
+          {
+            label: (<HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />),
+            path: "/",
+          },
+          {
+            label: "Блог",
+          },
+        ]} 
+      />
+      <Box sx={{pb: 5}}>
+        <Container maxWidth="lg">
+          <PostsCategories categories={categories} />
+          <Suspense fallback={<p>Loading posts...</p>}>
+            <MasonryPosts FirstPosts={FirstPosts} type="allPosts" />
+          </Suspense>
 
-        {/* {haveMorePosts
-          ? <Box component="form" action={onSubmit}>
-              <input type="hidden" name="endCursor" value={posts?.pageInfo?.startCursor} />
-              <LoadMorePostsButton />
-            </Box>
-          : <Typography>✅ Все посты загружены</Typography>
-        } */}
-        {/* {haveMorePosts
-          ? <LoadMorePostsButton posts={posts} />
-          : <Typography>✅ Все посты загружены</Typography>
-        } */}
-      </Container>
-    </Box>
+          {/* {haveMorePosts
+            ? <Box component="form" action={onSubmit}>
+                <input type="hidden" name="endCursor" value={posts?.pageInfo?.startCursor} />
+                <LoadMorePostsButton />
+              </Box>
+            : <Typography>✅ Все посты загружены</Typography>
+          } */}
+          {/* {haveMorePosts
+            ? <LoadMorePostsButton posts={posts} />
+            : <Typography>✅ Все посты загружены</Typography>
+          } */}
+        </Container>
+      </Box>
+    </>
   )
 }
